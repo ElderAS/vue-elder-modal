@@ -15,9 +15,9 @@ export default {
   watch: {
     show: {
       handler(val, oldVal) {
-        if (val === oldVal) return
+        if (val === oldVal || oldVal === undefined) return
         let counter = parseInt(document.body.getAttribute('elder-modal-open')) || 0
-        counter = counter + (val ? 1 : -1)
+        counter = Math.max(0, counter + (val ? 1 : -1))
         if (counter) document.body.setAttribute('elder-modal-open', counter)
         else document.body.removeAttribute('elder-modal-open')
       },
