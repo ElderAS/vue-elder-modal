@@ -16,10 +16,7 @@ export default {
     show: {
       handler(val, oldVal) {
         if (val === oldVal || oldVal === undefined) return
-        let counter = parseInt(document.body.getAttribute('elder-modal-open')) || 0
-        counter = Math.max(0, counter + (val ? 1 : -1))
-        if (counter) document.body.setAttribute('elder-modal-open', counter)
-        else document.body.removeAttribute('elder-modal-open')
+        this.setDialogCounter(val)
       },
       immediate: true,
     },
@@ -36,12 +33,19 @@ export default {
     onEsc(event) {
       if (this.show && event.keyCode === 27) this.close()
     },
+    setDialogCounter(state) {
+      let counter = parseInt(document.body.getAttribute('elder-modal-open')) || 0
+      counter = Math.max(0, counter + (state ? 1 : -1))
+      if (counter) document.body.setAttribute('elder-modal-open', counter)
+      else document.body.removeAttribute('elder-modal-open')
+    },
   },
   mounted() {
     window.addEventListener('keyup', this.onEsc)
   },
   beforeDestroy() {
     window.removeEventListener('keyup', this.onEsc)
+    if (this.show) this.setDialogCounter(false)
   },
 }
 </script>
