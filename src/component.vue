@@ -52,18 +52,20 @@ export default {
 
 <style lang="scss">
 .elder-modal {
-  z-index: 10;
-  padding: 2rem;
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(#030a0c, 0.65);
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+
+  background-color: rgba(#030a0c, 0.65);
 }
 
 .elder-modal-enter,
