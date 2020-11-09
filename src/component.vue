@@ -1,6 +1,11 @@
 <template lang="html">
   <transition name="elder-modal">
-    <div v-if="show" class="elder-modal" @click="onClickaway">
+    <div
+      v-if="show"
+      class="elder-modal"
+      @mousedown="onClickaway"
+      @touchstart="onClickaway"
+    >
       <slot :close="close" />
     </div>
   </transition>
