@@ -22,7 +22,8 @@ export default {
   watch: {
     show: {
       handler(val, oldVal) {
-        if (val === oldVal || oldVal === undefined) return
+        if (val === oldVal) return
+        if (oldVal === undefined && val === false) return
         this.setDialogCounter(val)
       },
       immediate: true,
