@@ -80,6 +80,7 @@ export default {
 
   &__content {
     max-height: calc(100vh - calc(var(--gutter) * 2));
+    width: inherit;
   }
 }
 
