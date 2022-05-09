@@ -6,9 +6,7 @@
       @mousedown="onClickaway"
       @touchstart="onClickaway"
     >
-      <div class="elder-modal__content">
-        <slot :close="close" />
-      </div>
+      <slot :close="close" />
     </div>
   </transition>
 </template>
@@ -68,7 +66,7 @@ export default {
   left: 0;
 
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
 
   width: 100%;
@@ -77,11 +75,6 @@ export default {
 
   background-color: rgba(#030a0c, 0.65);
   overflow-y: auto;
-
-  &__content {
-    max-height: calc(100vh - calc(var(--gutter) * 2));
-    width: inherit;
-  }
 }
 
 .elder-modal-enter,
